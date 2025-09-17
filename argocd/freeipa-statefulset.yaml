@@ -124,17 +124,17 @@ spec:
             resources:
               requests:
                 storage: 10Gi
-      volumes:
-        - name: cgroups
-          hostPath:
-            path: /sys/fs/cgroup
-        - name: run
-          emptyDir:
-            medium: Memory
-        - name: run-systemd
-          emptyDir:
-            medium: Memory
-        - name: tmp
-          emptyDir:
-            medium: Memory
-        - name: data
+      # volumes:
+      #   - name: cgroups
+      #     hostPath:
+      #       path: /sys/fs/cgroup
+      #   - name: run
+      #     emptyDir:
+      #       medium: Memory
+      #   - name: run-systemd
+      #     emptyDir:
+      #       medium: Memory
+      #   - name: tmp
+      #     emptyDir:
+      #       medium: Memory
+      #   - name: data
