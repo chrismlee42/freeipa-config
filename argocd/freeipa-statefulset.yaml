@@ -95,16 +95,16 @@ spec:
               protocol: UDP
             - containerPort: 636 # ldaps
           volumeMounts:
-            - name: ipa-data
+            - name: freeipa-data
               mountPath: /data
-            # - name: cgroups
-            #   mountPath: /sys/fs/cgroup
-            # - name: run
-            #   mountPath: /run
-            # - name: run-systemd
-            #   mountPath: /run/systemd
-            # - name: tmp
-            #   mountPath: /tmp
+            - name: cgroups
+              mountPath: /sys/fs/cgroup
+            - name: run
+              mountPath: /run
+            - name: run-systemd
+              mountPath: /run/systemd
+            - name: tmp
+              mountPath: /tmp
       dnsPolicy: "None"
       dnsConfig:
         nameservers:
@@ -117,25 +117,25 @@ spec:
           memory: "512Mi"
           cpu: "250m"
       terminationGracePeriodSeconds: 10
-      volumeClaimTemplates:
-        - metadata:
-            name: ipa-data
-          spec:
-            accessModes: [ "ReadWriteOnce" ]
-            resources:
-              requests:
-                storage: 1Gi
-      # volumes:
-      #   - name: cgroups
-      #     hostPath:
-      #       path: /sys/fs/cgroup
-      #   - name: run
-      #     emptyDir:
-      #       medium: Memory
-      #   - name: run-systemd
-      #     emptyDir:
-      #       medium: Memory
-      #   - name: tmp
-      #     emptyDir:
-      #       medium: Memory
-      #   - name: data
+      volumes:
+        - name: cgroups
+          hostPath:
+            path: /sys/fs/cgroup
+        - name: run
+          emptyDir:
+            medium: Memory
+        - name: run-systemd
+          emptyDir:
+            medium: Memory
+        - name: tmp
+          emptyDir:
+            medium: Memory
+        # - name: data
+    volumeClaimTemplates:
+      - metadata:
+          name: freeipa-data
+        spec:
+          accessModes: [ "ReadWriteOnce" ]
+          resources:
+            requests:
+              storage: 1Gi
