@@ -108,8 +108,9 @@ spec:
       dnsPolicy: "None"
       dnsConfig:
         nameservers:
-          - 1.1.1.3
-          - 10.1.1.1
+          - 192.168.1.1
+          - 8.8.8.8
+          - 8.8.4.4
       hostname: "freeipa.clee.private.morphacy.net"
       resources:
         requests:
