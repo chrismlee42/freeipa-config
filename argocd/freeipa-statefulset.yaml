@@ -97,14 +97,14 @@ spec:
           volumeMounts:
             - name: ipa-data
               mountPath: /data
-            - name: cgroups
-              mountPath: /sys/fs/cgroup
-            - name: run
-              mountPath: /run
-            - name: run-systemd
-              mountPath: /run/systemd
-            - name: tmp
-              mountPath: /tmp
+            # - name: cgroups
+            #   mountPath: /sys/fs/cgroup
+            # - name: run
+            #   mountPath: /run
+            # - name: run-systemd
+            #   mountPath: /run/systemd
+            # - name: tmp
+            #   mountPath: /tmp
       dnsPolicy: "None"
       dnsConfig:
         nameservers:
